@@ -29,7 +29,7 @@ After your cluster is installed, you will need to do the following:
 1. Patch the cluster version so that you can launch your own image-registry operator image:
 
 ```
-$ oc patch clusterversion/version --patch '{"spec":{"overrides":[{"kind":"Deployment", "name":"cluster-image-registry-operator","namespace":"openshift-image-registry","unmanaged":true}]}}' --type=merge
+$ oc patch clusterversion/version --patch '{"spec":{"overrides":[{"kind":"Deployment", "name":"cluster-image-registry-operator","namespace":"openshift-image-registry","unmanaged":true,"group": "apps/v1"}]}}' --type=merge
 ```
 
 2. Make your code changes and build the binary with `make build`.
